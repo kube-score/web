@@ -23,6 +23,11 @@
         color: #151513;
     }
 
+    #logo {
+        float: left;
+        height: 80px;
+    }
+
     textarea {
         width: 100%;
         min-height: 300px;
@@ -68,7 +73,10 @@
 </head>
 <body>
 
+<img src="logo.svg" id="logo">
+
 <h1>kube-score</h1>
+
 <p>Kubernetes object analysis with recommendations for improved reliability and security.</p>
 <p><code>kube-score</code> is a tool that does static code analysis of your Kubernetes object definitions. The output is
     a list of
