@@ -8,6 +8,14 @@ provider "archive" {
   version = "1.2.1"
 }
 
+provider "null" {
+  version = "2.1.1"
+}
+
+provider "local" {
+  version = "1.2.1"
+}
+
 terraform {
   backend "s3" {
     bucket = "kube-score-tf-state"
@@ -21,8 +29,3 @@ terraform {
 
 data "aws_region" "current" {}
 
-data "archive_file" "kube_score_go" {
-  type        = "zip"
-  source_file = "${path.module}/../api-linux-amd64"
-  output_path = "${path.module}/files/kube_score_api.zip"
-}
