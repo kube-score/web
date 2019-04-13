@@ -5,7 +5,6 @@
     <title>kube-score - Kubernetes object analysis with recommendations for improved reliability and security</title>
     <meta name="description"
           content="kube-score is a tool that does static code analysis of your Kubernetes object definitions. The output is a list of recommendations of what you can improve to make your application more secure and resilient.">
-    <link rel=”canonical” href=”https://kube-score.com” />
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style type="text/css">
@@ -192,7 +191,7 @@ spec:
 
         function score() {
             $.ajax({
-                url: 'https://api.kube-score.com/kube_score_api',
+                url: 'https://api.kube-score.com/score',
                 type: 'POST',
                 contentType: 'application/octet-stream',
                 data: $("#kube-score-input").val(),
