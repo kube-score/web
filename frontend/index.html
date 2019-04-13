@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kube-score - Kubernetes object analysis with recommendations for improved reliability and security</title>
+    <meta name="description"
+          content="kube-score is a tool that does static code analysis of your Kubernetes object definitions. The output is a list of recommendations of what you can improve to make your application more secure and resilient.">
+    <link rel=”canonical” href=”https://kube-score.com” />
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style type="text/css">
+    body {
+        font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+        background-color: #fff;
+        font-size: 16px;
+        font-weight: 300;
+        color: #555;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    a, a:visited {
+        color: #151513;
+    }
+
+    textarea {
+        width: 100%;
+        min-height: 300px;
+        padding: 5px;
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: 14px;
+    }
+
+    #result-wrapper {
+        list-style: none;
+    }
+
+    #result-wrapper .grade-1 {
+        color: #b33951;
+    }
+
+    #result-wrapper .grade-5 {
+        color: #e3d081;
+    }
+
+    #result-wrapper .grade-7 {
+        color: #bad7f2;
+    }
+
+    #result-wrapper .grade-10 {
+        color: #91c7b1;
+    }
+
+    #result-wrapper .name {
+        font-weight: bold;
+        list-style: none;
+    }
+
+    #result-wrapper > li > ul {
+        margin-bottom: 15px;
+    }
+
+    .obj-ref {
+        font-weight: bold;
+        padding: 10px;
+    }
+</style>
+</head>
+<body>
+
+<h1>kube-score</h1>
+<p>Kubernetes object analysis with recommendations for improved reliability and security.</p>
+<p><code>kube-score</code> is a tool that does static code analysis of your Kubernetes object definitions. The output is
+    a list of
+    recommendations of what you can improve to make your application more secure and resilient.</p>
+<p><code>kube-score</code> is <a href="https://github.com/zegl/kube-score">open-source and available under the
+        MIT-license</a>. For more information about how to use kube-score, see <a href="https://github.com/zegl/kube-score">zegl/kube-score</a> on GitHub.
+    Use this website to easily test kube-score, just paste your object definition YAML or JSON in the box below.
+</p>
+
+<textarea id="kube-score-input">
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: statefulset-test-1
+spec:
+  template:
+    metadata:
+      labels:
+        app: foo
+    spec:
+      containers:
+      - name: foobar
+        image: foo:bar
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: app-budget
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: not-foo
+</textarea>
+
+<div id="kube-score-result">
+    <div id="result-wrapper"><i>Paste an object in the box above to get started...</i></div>
+</div>
+
+<a href="https://github.com/zegl/kube-score" class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250"
+         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<style>.github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
+
+    @keyframes octocat-wave {
+        0%, 100% {
+            transform: rotate(0)
+        }
+        20%, 60% {
+            transform: rotate(-25deg)
+        }
+        40%, 80% {
+            transform: rotate(10deg)
+        }
+    }
+
+    @media (max-width: 500px) {
+        .github-corner:hover .octo-arm {
+            animation: none
+        }
+
+        .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+    }</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        function renderResult(score) {
+            // Reset output
+            $("#result-wrapper").remove();
+
+            const values = Object.values(score);
+
+            let allChecks = $("<ul id=result-wrapper>");
+
+            values.forEach(function (object) {
+
+                console.log(object);
+
+                allChecks.append($("<li class=obj-ref>").text(object["TypeMeta"]["apiVersion"] + "/" + object["TypeMeta"]["kind"] + " " + object["ObjectMeta"]["name"]));
+
+                object["Checks"].forEach(function (check) {
+                    console.log(check);
+                    let li = $("<li>");
+
+                    li.addClass("grade-" + check["Grade"]);
+
+                    let innerUl = $("<ul>");
+                    li.append(innerUl);
+
+
+                    innerUl.append($("<li>").addClass("name").text(check["Check"]["Name"]));
+
+                    if (check["Comments"]) {
+                        check["Comments"].forEach(function (comment) {
+                            if (comment["Path"]) {
+                                innerUl.append($("<li>").text(comment["Path"] + ": " + comment["Summary"] + ": " + comment["Description"]));
+                            } else {
+                                innerUl.append($("<li>").text(comment["Summary"] + ": " + comment["Description"]));
+                            }
+                        });
+                    }
+
+                    allChecks.append(li);
+                });
+            });
+
+            $("#kube-score-result").append(allChecks);
+        }
+
+        function score() {
+            $.ajax({
+                url: 'https://api.kube-score.com/kube_score_api',
+                type: 'POST',
+                contentType: 'application/octet-stream',
+                data: $("#kube-score-input").val(),
+                processData: false,
+                error: function () {
+                    $("#kube-score-result").append($("<p id=result-wrapper>").text("Request failed"));
+                },
+            }).done(function (data) {
+                renderResult(data);
+            });
+        }
+
+        $("#kube-score-input").on("change keyup paste", function () {
+            $("#result-wrapper").remove();
+            score();
+        });
+
+        score();
+    });
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138297119-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-138297119-1');
+</script>
+
+
+</body>
+</html>
