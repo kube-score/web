@@ -8,25 +8,25 @@ resource "aws_s3_bucket" "kube_score" {
 }
 
 resource "aws_s3_bucket_object" "index" {
-  bucket        = "${aws_s3_bucket.kube_score.bucket}"
+  bucket        = aws_s3_bucket.kube_score.bucket
   key           = "index.html"
   source        = "../frontend/index.html"
-  etag          = "${filemd5("../frontend/index.html")}"
+  etag          = filemd5("../frontend/index.html")
   content_type  = "text/html"
   cache_control = "max-age=300"
 }
 
 resource "aws_s3_bucket_object" "logo" {
-  bucket        = "${aws_s3_bucket.kube_score.bucket}"
+  bucket        = aws_s3_bucket.kube_score.bucket
   key           = "logo.svg"
   source        = "../frontend/logo.svg"
-  etag          = "${filemd5("../frontend/logo.svg")}"
+  etag          = filemd5("../frontend/logo.svg")
   content_type  = "image/svg+xml"
   cache_control = "max-age=300"
 }
 
 resource "aws_s3_bucket_policy" "kube_score" {
-  bucket = "${aws_s3_bucket.kube_score.id}"
+  bucket = aws_s3_bucket.kube_score.id
 
   policy = <<POLICY
 {
@@ -45,4 +45,6 @@ resource "aws_s3_bucket_policy" "kube_score" {
     ]
 }
 POLICY
+
 }
+

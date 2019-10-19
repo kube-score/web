@@ -1,6 +1,6 @@
 provider "aws" {
   region  = "eu-north-1"
-  version = "2.6.0"
+  version = "2.33.0"
   profile = "gustav"
 }
 
@@ -18,14 +18,14 @@ provider "local" {
 
 terraform {
   backend "s3" {
-    bucket = "kube-score-tf-state"
-    key    = "kube-score.tfstate"
-    region = "eu-north-1"
+    bucket                 = "kube-score-tf-state"
+    key                    = "kube-score.tfstate"
+    region                 = "eu-north-1"
     skip_region_validation = true
-    profile = "gustav"
+    profile                = "gustav"
   }
 }
 
-
-data "aws_region" "current" {}
+data "aws_region" "current" {
+}
 

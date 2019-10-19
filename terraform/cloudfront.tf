@@ -4,8 +4,8 @@ locals {
 
 resource "aws_cloudfront_distribution" "kube_score_distribution" {
   origin {
-    domain_name = "${aws_s3_bucket.kube_score.bucket_domain_name}"
-    origin_id   = "${local.s3_origin_id}"
+    domain_name = aws_s3_bucket.kube_score.bucket_domain_name
+    origin_id   = local.s3_origin_id
 
     s3_origin_config {
       origin_access_identity = "origin-access-identity/cloudfront/EPWSTV8SWLQGI"
@@ -27,7 +27,7 @@ resource "aws_cloudfront_distribution" "kube_score_distribution" {
   default_cache_behavior {
     allowed_methods  = ["HEAD", "GET"]
     cached_methods   = ["HEAD", "GET"]
-    target_origin_id = "${local.s3_origin_id}"
+    target_origin_id = local.s3_origin_id
 
     forwarded_values {
       query_string = false
@@ -57,3 +57,4 @@ resource "aws_cloudfront_distribution" "kube_score_distribution" {
     acm_certificate_arn      = "arn:aws:acm:us-east-1:414416641486:certificate/0fd52e43-63bc-4c27-9048-f302ed3bfcd3"
   }
 }
+
