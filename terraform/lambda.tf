@@ -1,6 +1,6 @@
 resource "null_resource" "compile_score" {
   provisioner "local-exec" {
-    command     = "mkdir -p ${path.module}/files && go build -o ${path.module}/files/api-linux-amd64"
+    command     = "mkdir -p files && go build -o files/api-linux-amd64 && zip -r files/api-linux-amd64.zip files/api-linux-amd64"
     working_dir = ".."
     environment = {
       GOOS   = "linux"
@@ -15,23 +15,11 @@ resource "null_resource" "compile_score" {
   }
 }
 
-data "local_file" "compiled_func" {
-  filename   = "${path.module}/files/api-linux-amd64"
-  depends_on = [null_resource.compile_score]
-}
-
-data "archive_file" "kube_score_go" {
-  type        = "zip"
-  source_file = "${path.module}/files/api-linux-amd64"
-  output_path = "${path.module}/files/kube_score_api.zip"
-  depends_on  = [data.local_file.compiled_func]
-}
-
 resource "aws_lambda_function" "kube_score_api" {
   function_name    = "kube_score_api"
-  filename         = data.archive_file.kube_score_go.output_path
+  filename         = "../files/api-linux-amd64.zip"
   handler          = "api-linux-amd64"
-  source_code_hash = data.archive_file.kube_score_go.output_base64sha256
+  source_code_hash = "${filebase64sha256("../files/api-linux-amd64.zip")}"
   role             = aws_iam_role.kube_score_lambda.arn
   runtime          = "go1.x"
   memory_size      = 128
@@ -66,4 +54,3 @@ resource "aws_lambda_permission" "kube_score_api" {
   function_name = aws_lambda_function.kube_score_api.arn
   principal     = "apigateway.amazonaws.com"
 }
-

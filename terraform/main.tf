@@ -5,15 +5,15 @@ provider "aws" {
 }
 
 provider "archive" {
-  version = "1.2.1"
+  version = "1.3.0"
 }
 
 provider "null" {
-  version = "2.1.1"
+  version = "2.1.2"
 }
 
 provider "local" {
-  version = "1.2.1"
+  version = "1.4.0"
 }
 
 terraform {
@@ -28,4 +28,3 @@ terraform {
 
 data "aws_region" "current" {
 }
-
