@@ -27,14 +27,14 @@ resource "aws_api_gateway_resource" "resource" {
 }
 
 resource "aws_api_gateway_method" "post" {
-  rest_api_id = var.rest_api_id
+  rest_api_id   = var.rest_api_id
   resource_id   = aws_api_gateway_resource.resource.id
   http_method   = "POST"
   authorization = "NONE"
 }
 
 resource "aws_api_gateway_integration" "integration" {
-  rest_api_id = var.rest_api_id
+  rest_api_id             = var.rest_api_id
   resource_id             = aws_api_gateway_resource.resource.id
   http_method             = aws_api_gateway_method.post.http_method
   integration_http_method = "POST"
