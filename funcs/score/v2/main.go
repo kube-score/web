@@ -38,7 +38,7 @@ func handleRequest(req events.APIGatewayProxyRequest) (events.APIGatewayProxyRes
 	card, err := score.Score(allObjs, cnf)
 
 	color.NoColor = false
-	output := human.Human(card, 0, 100)
+	output := human.Human(card, 0, 110)
 
 	body, _ := ioutil.ReadAll(output)
 
