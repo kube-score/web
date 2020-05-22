@@ -4,7 +4,7 @@ go 1.12
 
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
-	github.com/aws/aws-lambda-go v1.13.3
+	github.com/aws/aws-lambda-go v1.17.0
 	github.com/buildkite/terminal-to-html v3.2.0+incompatible
 	github.com/davecheney/graphpkg v0.0.0-20160907084000-658e86e77795 // indirect
 	github.com/fatih/color v1.9.0
