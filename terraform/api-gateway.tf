@@ -14,12 +14,6 @@ resource "aws_api_gateway_base_path_mapping" "api_kube_score_com" {
 }
 
 resource "aws_api_gateway_deployment" "kube_score_api_v1" {
-  # Automatically trigger a deployment if the api has changed
-  stage_description = <<DESCRIPTION
-FOO
-DESCRIPTION
-
-
   rest_api_id = aws_api_gateway_rest_api.kube_score_api.id
   stage_name  = "v1"
 
