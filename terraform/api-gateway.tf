@@ -14,15 +14,9 @@ resource "aws_api_gateway_base_path_mapping" "api_kube_score_com" {
 }
 
 resource "aws_api_gateway_deployment" "kube_score_api_v1" {
-  depends_on = [aws_api_gateway_integration.kube_score_api]
-
   # Automatically trigger a deployment if the api has changed
   stage_description = <<DESCRIPTION
-${aws_api_gateway_resource.score.id}
-${aws_api_gateway_method.post_score.id}
-${aws_api_gateway_integration.kube_score_api.id}
-${aws_api_gateway_method.options_method.id}
-${aws_api_gateway_integration.options_integration.id}
+FOO
 DESCRIPTION
 
 
@@ -32,8 +26,4 @@ DESCRIPTION
   lifecycle {
     create_before_destroy = true
   }
-}
-
-output "url" {
-  value = "${aws_api_gateway_deployment.kube_score_api_v1.invoke_url}${aws_api_gateway_resource.score.path}"
 }
