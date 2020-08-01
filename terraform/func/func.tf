@@ -2,7 +2,7 @@ resource "aws_lambda_function" "function" {
   function_name    = "kube_score_api_${var.name}"
   filename         = "${var.root}/files/${var.name}-linux-amd64.zip"
   handler          = "${var.name}-linux-amd64"
-  source_code_hash = "${filebase64sha256("${var.root}/files/${var.name}-linux-amd64.zip")}"
+  source_code_hash = filebase64sha256("${var.root}/files/${var.name}-linux-amd64.zip")
   role             = var.aws_iam_role_arn
   runtime          = "go1.x"
   memory_size      = 128
@@ -23,7 +23,7 @@ resource "aws_lambda_permission" "invoke_func" {
 resource "aws_api_gateway_resource" "resource" {
   rest_api_id = var.rest_api_id
   parent_id   = var.rest_api_parent_id
-  path_part   = "${var.name}"
+  path_part   = var.name
 }
 
 resource "aws_api_gateway_method" "post" {
