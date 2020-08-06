@@ -5,7 +5,7 @@ go 1.12
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/NYTimes/gziphandler v1.1.1 // indirect
-	github.com/aws/aws-lambda-go v1.18.0
+	github.com/aws/aws-lambda-go v1.19.0
 	github.com/buildkite/terminal-to-html v3.2.0+incompatible
 	github.com/davecheney/graphpkg v0.0.0-20160907084000-658e86e77795 // indirect
 	github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c // indirect
@@ -32,7 +32,6 @@ require (
 	golang.org/x/text v0.3.3 // indirect
 	golang.org/x/tools v0.0.0-20190728063539-fc6e2057e7f6 // indirect
 	gopkg.in/yaml.v2 v2.3.0 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776 // indirect
 	k8s.io/gengo v0.0.0-20190907103519-ebc107f98eab // indirect
 	sigs.k8s.io/structured-merge-diff v0.0.0-20190724202554-0c1d754dd648 // indirect
 )
