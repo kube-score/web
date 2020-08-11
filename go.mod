@@ -27,7 +27,7 @@ require (
 	github.com/munnerz/goautoneg v0.0.0-20190414153302-2ae31c8b6b30 // indirect
 	github.com/pkg/browser v0.0.0-20180916011732-0a3d74bf9ce4 // indirect
 	github.com/urfave/cli v1.22.1 // indirect
-	github.com/zegl/kube-score v1.7.3
+	github.com/zegl/kube-score v1.8.0
 	golang.org/x/net v0.0.0-20200707034311-ab3426394381 // indirect
 	golang.org/x/text v0.3.3 // indirect
 	golang.org/x/tools v0.0.0-20190728063539-fc6e2057e7f6 // indirect

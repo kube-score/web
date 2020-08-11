@@ -194,6 +194,8 @@ github.com/zegl/kube-score v1.3.1-0.20191117123807-298b67358dfa h1:y8UNq5sPa8Tm9
 github.com/zegl/kube-score v1.3.1-0.20191117123807-298b67358dfa/go.mod h1:qgTihn27JPZ4T6jKUkxh7Tt5JxvZQUJ3PnpcA06Xsjs=
 github.com/zegl/kube-score v1.7.3 h1:ZzfMWS9oWUnCxww/un8uVVeOhOZH48GmH2U3NtFcJQc=
 github.com/zegl/kube-score v1.7.3/go.mod h1:dIRxob3zht4OimhnoKDJLx9VZucrq9skoP47IvygGUk=
+github.com/zegl/kube-score v1.8.0 h1:vfpO8rYJXIxz3P8MsccPvuDDT0E7DVxuV7jFEXBJOOY=
+github.com/zegl/kube-score v1.8.0/go.mod h1:dIRxob3zht4OimhnoKDJLx9VZucrq9skoP47IvygGUk=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20190411191339-88737f569e3a/go.mod h1:WFFai1msRO1wXaEeE5yQxYXgSfI8pQAWXbQop6sCtWE=
 golang.org/x/crypto v0.0.0-20190426145343-a29dc8fdc734/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=
