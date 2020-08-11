@@ -194,6 +194,8 @@ github.com/zegl/kube-score v1.3.1-0.20191117123807-298b67358dfa h1:y8UNq5sPa8Tm9
 github.com/zegl/kube-score v1.3.1-0.20191117123807-298b67358dfa/go.mod h1:qgTihn27JPZ4T6jKUkxh7Tt5JxvZQUJ3PnpcA06Xsjs=
 github.com/zegl/kube-score v1.7.3 h1:ZzfMWS9oWUnCxww/un8uVVeOhOZH48GmH2U3NtFcJQc=
 github.com/zegl/kube-score v1.7.3/go.mod h1:dIRxob3zht4OimhnoKDJLx9VZucrq9skoP47IvygGUk=
+github.com/zegl/kube-score v1.8.1 h1:yvicOiCdofTVPv2bIBdbrqvAz0/HI503iR0+1SDiYc4=
+github.com/zegl/kube-score v1.8.1/go.mod h1:dIRxob3zht4OimhnoKDJLx9VZucrq9skoP47IvygGUk=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20190411191339-88737f569e3a/go.mod h1:WFFai1msRO1wXaEeE5yQxYXgSfI8pQAWXbQop6sCtWE=
 golang.org/x/crypto v0.0.0-20190426145343-a29dc8fdc734/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=
@@ -249,6 +251,7 @@ golang.org/x/sys v0.0.0-20190726091711-fc99dfbffb4e/go.mod h1:h1NjWce9XRLGQEsW7w
 golang.org/x/sys v0.0.0-20191022100944-742c48ecaeb7/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20191026070338-33540a1f6037 h1:YyJpGZS1sBuBCzLAR1VEpK193GlqGZbnPFnPV/5Rsb4=
 golang.org/x/sys v0.0.0-20191026070338-33540a1f6037/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd h1:xhmwyvizuTgC2qz7ZlMluP20uW+C3Rm0FD/WLDX8884=
 golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/text v0.0.0-20160726164857-2910a502d2bf/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.0 h1:g61tztE5qeGQ89tm6NTjjM9VPIm088od1l6aSorWRWg=
