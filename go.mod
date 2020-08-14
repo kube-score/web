@@ -5,7 +5,7 @@ go 1.12
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/NYTimes/gziphandler v1.1.1 // indirect
-	github.com/aws/aws-lambda-go v1.19.0
+	github.com/aws/aws-lambda-go v1.19.1
 	github.com/buildkite/terminal-to-html v3.2.0+incompatible
 	github.com/davecheney/graphpkg v0.0.0-20160907084000-658e86e77795 // indirect
 	github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c // indirect
