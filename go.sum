@@ -21,6 +21,8 @@ github.com/aws/aws-lambda-go v1.19.0 h1:Cn28zA8Mic4NpR7p4IlaEW2srI+U3+I7tRqjFMpt
 github.com/aws/aws-lambda-go v1.19.0/go.mod h1:jJmlefzPfGnckuHdXX7/80O3BvUUi12XOkbv4w9SGLU=
 github.com/aws/aws-lambda-go v1.22.0 h1:X7BKqIdfoJcbsEIi+Lrt5YjX1HnZexIbNWOQgkYKgfE=
 github.com/aws/aws-lambda-go v1.22.0/go.mod h1:jJmlefzPfGnckuHdXX7/80O3BvUUi12XOkbv4w9SGLU=
+github.com/aws/aws-lambda-go v1.23.0 h1:Vjwow5COkFJp7GePkk9kjAo/DyX36b7wVPKwseQZbRo=
+github.com/aws/aws-lambda-go v1.23.0/go.mod h1:jJmlefzPfGnckuHdXX7/80O3BvUUi12XOkbv4w9SGLU=
 github.com/buildkite/terminal-to-html v3.2.0+incompatible h1:WdXzl7ZmYzCAz4pElZosPaUlRTW+qwVx/SkQSCa1jXs=
 github.com/buildkite/terminal-to-html v3.2.0+incompatible/go.mod h1:BFFdFecOxCgjdcarqI+8izs6v85CU/1RA/4Bqh4GR7E=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
