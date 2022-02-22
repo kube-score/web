@@ -1,13 +1,21 @@
 resource "aws_s3_bucket" "kube_score" {
   bucket = "kube-score.com"
-  acl    = "private"
+}
 
-  website {
-    index_document = "index.html"
+resource "aws_s3_bucket_acl" "kube_score" {
+  bucket = aws_s3_bucket.kube_score.id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_website_configuration" "kube_score" {
+  bucket = aws_s3_bucket.kube_score.id
+
+  index_document {
+    suffix = "index.html"
   }
 }
 
-resource "aws_s3_bucket_object" "index" {
+resource "aws_s3_object" "index" {
   bucket        = aws_s3_bucket.kube_score.bucket
   key           = "index.html"
   source        = "../frontend/index.html"
@@ -16,7 +24,7 @@ resource "aws_s3_bucket_object" "index" {
   cache_control = "max-age=300"
 }
 
-resource "aws_s3_bucket_object" "logo" {
+resource "aws_s3_object" "logo" {
   bucket        = aws_s3_bucket.kube_score.bucket
   key           = "logo.svg"
   source        = "../frontend/logo.svg"

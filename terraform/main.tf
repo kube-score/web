@@ -1,19 +1,7 @@
 provider "aws" {
-  region  = "eu-north-1"
-  version = "3.0.0"
+  region = "eu-north-1"
+
   profile = "gustav"
-}
-
-provider "archive" {
-  version = "1.3.0"
-}
-
-provider "null" {
-  version = "2.1.2"
-}
-
-provider "local" {
-  version = "1.4.0"
 }
 
 terraform {
@@ -23,6 +11,24 @@ terraform {
     region                 = "eu-north-1"
     skip_region_validation = true
     profile                = "gustav"
+  }
+
+  required_providers {
+    aws = {
+      version = "4.2.0"
+    }
+
+    archive = {
+      version = "2.2.0"
+    }
+
+    null = {
+      version = "3.1.0"
+    }
+
+    local = {
+      version = "2.1.0"
+    }
   }
 }
 

@@ -2,11 +2,11 @@ package main
 
 import (
 	"encoding/json"
-	"io"
 	"net/http"
 	"strings"
 
 	"github.com/zegl/kube-score/config"
+	"github.com/zegl/kube-score/domain"
 	"github.com/zegl/kube-score/parser"
 	"github.com/zegl/kube-score/score"
 
@@ -14,15 +14,25 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
+type inputReader struct {
+	*strings.Reader
+}
+
+func (inputReader) Name() string {
+	return "input"
+}
+
 func handleRequest(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	fail := func(err error) events.APIGatewayProxyResponse {
 		return events.APIGatewayProxyResponse{StatusCode: http.StatusBadRequest, Body: err.Error()}
 	}
 
+	reader := &inputReader{
+		Reader: strings.NewReader(req.Body),
+	}
+
 	cnf := config.Configuration{
-		AllFiles: []io.Reader{
-			strings.NewReader(req.Body),
-		},
+		AllFiles: []domain.NamedReader{reader},
 	}
 
 	allObjs, err := parser.ParseFiles(cnf)
