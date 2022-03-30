@@ -3,7 +3,7 @@ module github.com/zegl/kube-score-api
 go 1.17
 
 require (
-	github.com/aws/aws-lambda-go v1.28.0
+	github.com/aws/aws-lambda-go v1.29.0
 	github.com/buildkite/terminal-to-html v3.2.0+incompatible
 	github.com/fatih/color v1.13.0
 	github.com/zegl/kube-score v1.14.0
